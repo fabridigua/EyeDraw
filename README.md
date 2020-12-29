@@ -1,4 +1,3 @@
-# README TODO
 # EyeDraw
 Small computer vision software that allows you to draw with your own eyes
 
@@ -14,7 +13,7 @@ Table of contents
 ## Basic Overview
 L'esecuzione del software consiste in 3 fasi
  Threshold Settings|Calibration|Draw
---------|----
+--------|----|----
 IMG1|IMG2|IMG3
 DESCR1|DESCR2|DESCR3
 
