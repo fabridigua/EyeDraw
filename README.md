@@ -12,7 +12,8 @@ Table of contents
 
 ## Basic Overview
 
-This project aims to investigate the potential of computer vision in eyes detection for the development of a real-time application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part.
+This project aims to investigate the potential of computer vision in eyes detection for the development of a real-time application with the use of a simple webcam. 
+**OpenCV** is used for both the GUI and the algorithmic part.<> (This is a comment, it will not be included)
 
 | Threshold Settings | Calibration | Draw   |
 | ------------------ | ----------- | ------ |
