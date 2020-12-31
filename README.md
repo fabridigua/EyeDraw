@@ -66,9 +66,9 @@ project
 
    During all the execution the program analyze the input image from the webcam to detect the face and in particular the eyes.
 
-   Face and eyes detection is made with OpenCV's 
+   Face and eyes detection is made with OpenCV's [Haar]
 
-   [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector"
+   [Haar]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector"
 
    dddd deddd 
 
