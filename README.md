@@ -43,7 +43,7 @@ The execution consists of 3 phases:
 
 ## Projects structure
 
-```
+```bash
 project
 │   README.md
 │   LICENSE   
