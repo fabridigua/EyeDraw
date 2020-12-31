@@ -12,16 +12,16 @@ This project aims to investigate the potential of computer vision in eyes detect
 
 The execution consists of 3 phases:
 
-| 1. Threshold Settings | 2. Calibration | 3. Draw |
-| --------------------- | -------------- | ------- |
-| dd                    | IMG2           | IMG3    |
-| DESCR1                | DESCR2         | DESCR3  |
+| 1. Threshold Settings                                        | 2. Calibration                                               | 3. Draw                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="1.threshold.png" style="zoom:33%;" />              | <img src="2.calibration.png" style="zoom:33%;" />            | <img src="3.paint.png" style="zoom:33%;" />                  |
+| Your face and eyes are detected in real-time. You must set two important threshold to improve and stabilize the detection. | The calibration is performed making you follow the circle with your eyes for about 30 seconds. | You can draw! Move the cursor on the canvas and draw what you want. Custom options and colors are available. |
 
 **Language**: *Python*
 
 **Frameworks**: *OpenCV*
 
-**Algorithms**: *Haar cascade classifier (for face and eyes detection)*, *Homography*
+**Algorithms**: *Haar cascade classifier*, *Blob Detection* , *Homography*
 
 # Prerequisiti
 
