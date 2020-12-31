@@ -66,11 +66,12 @@ project
 
    During all the execution the program analyze the input image from the webcam to detect the face and in particular the eyes.
 
-   Face and eyes detection is made with OpenCV's [Haar]
+   Face and eyes detection is made with OpenCV's [Haar] and then to detect the pupils, a Blob Detection is made with the [SimpleBlobDetecto]r.
 
-   [Haar]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector"
+   [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector Explanation"
+   [SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
 
-   dddd deddd 
+   In this phase is necessary.... threshold...
 
 2. Calibration
 
@@ -78,7 +79,7 @@ project
 
 
 
-# GUI explination
+# GUI Explanation
 
 #related
 
