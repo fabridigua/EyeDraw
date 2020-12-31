@@ -29,7 +29,9 @@ The execution consists of 3 phases:
 
 - **OpenCV 4.0.1** 
 
-  - Be sure  that OpenCV's haarcascade models '*haarcascade_frontalface_default.xml*' and '*haarcascade_eye.xml*' are properly installed in OpenCV root folder in your Python environment. Files should be in the path returned by this snippet:
+  - Be sure  that OpenCV's haarcascade models '*haarcascade_frontalface_default.xml*' and '*haarcascade_eye.xml*' are properly installed in OpenCV root folder in your Python environment. 
+
+    Files should be in the path returned by this snippet:
 
     ```python
     >>> import cv2
