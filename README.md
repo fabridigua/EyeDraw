@@ -23,7 +23,21 @@ The execution consists of 3 phases:
 
 **Algorithms**: *Haar cascade classifier*, *Blob Detection* , *Homography*
 
-# Prerequisiti
+# System Requirements
+
+- **Python 3.8**
+
+- **OpenCV 4.0.1** 
+
+  - Be sure  that OpenCV's haarcascade models '*haarcascade_frontalface_default.xml*' and '*haarcascade_eye.xml*' are properly installed in OpenCV root folder in your Python environment. Files should be in the path returned by this snippet:
+
+    ```python
+    >>> import cv2
+    >>> from os.path import realpath, normpath
+    >>> normpath(realpath(cv2.__file__) + '../../../../Library/etc/haarcascades/')
+    ```
+
+    If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
 
 # How to execute it
 
