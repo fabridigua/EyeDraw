@@ -62,9 +62,21 @@ project
 
 
 ## How it works
-1 
-2
-3
+1. **Eye Detection** and **Threshold Settings**
+
+   During all the execution the program analyze the input image from the webcam to detect the face and in particular the eyes.
+
+   Face and eyes detection is made with OpenCV's 
+
+   [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector"
+
+   dddd deddd 
+
+2. Calibration
+
+3. Drawing
+
+
 
 # GUI explination
 
