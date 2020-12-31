@@ -53,10 +53,10 @@ project
 │   │   2.calibration.png
 │   │   3.paint.png
 │
-│   main.py				Main file to execute the software
+│   main.py			Main file to execute the software
 │   Detector.py			Class for face and eye detection			
 │   Homography.py		Class for calculation of the homography map
-│   GUI.py				Class for the drawing and rendering of the user interface 			
+│   GUI.py			Class for the drawing and rendering of the user interface 			
 ```
 
 
