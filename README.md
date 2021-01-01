@@ -5,7 +5,14 @@ Small computer vision software that allows you to draw with your own eyes
 
 Preview GIF {TODO}
 
-Table of contents {TODO}
+## Table of contents
+
+* [Basic Overview](#basic-overview)
+* [System Requirements](#system-requirements)
+* [Project structure](#project-structure)
+* [Setup](#setup)
+* [How it works](#how-it-works)
+* [References](#references)
 
 ## Basic Overview
 This project aims to investigate the potential of computer vision in eyes detection for the development of a real-time application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part. 
@@ -41,7 +48,7 @@ The execution consists of 3 phases:
 
     If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
 
-## Projects structure
+## Project structure
 
 ```
 project
@@ -59,7 +66,14 @@ project
 │   GUI.py		Class for the drawing and rendering of the user interface 			
 ```
 
+## Setup
 
+To run this project, clone it with git and run the `main.py` file:
+
+```
+$ git clone ...
+$ python main.py
+```
 
 ## How it works
 1. **Eye Detection** and **Threshold Settings**
@@ -79,39 +93,28 @@ project
      | ---------------------------- | --------------------------- | ---------------------------- |
      | Good threshold value         | Too Low threshold value     | Too High threshold value     |
 
-   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and so the cursor position during the drawing phase), the current eye position is updated only if the two bounding box of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
+   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and so the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
 
-2. Calibration
+2. **Calibration**
 
-3. Drawing
+   The user has to follow a filled circle moving in the screen for about 30 seconds. If the software is detecting the eyes the circle is green, otherwise is become red and stops its movement until the eyes are seen again. There are 17 known positions on the path in witch the circle pause the walk and the software saves both the circle's and the eye's positions; for the eye the middle horizontal point is considered.  At the end of the calibration the software calculates the homography between the screen and the one built with the saved eyes positions.
+
+   TODO: GIF
+
+3. **Drawing**
+
+   The user can draw! There are two interaction mode, toggled with the `space` key: the "*Pointer Mode*" in witch the user can move the cursor in the canvas without drawing and the "*Paint Mode*" in witch the user can draw moving the eyes on the canvas. In every moment the user can:
+
+   - Toggle the interaction mode with `space` key
+   - Clear the canvas with `c` key
+   - Change the cursor size with `-` key to decrease and `+` to increase 
+   - Save the image with `s` key
+   - Change the *sensibility* value with `<` key to decrease and `>` to increase
+   - Change the color choosing between the ones showed in the palette in the lateral bar
+
+   TODO: GIF con le funzionalità
 
 
 
-# GUI Explanation
-
-#related
-
--------------
-
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
-
-## General info
-This project is simple Lorem ipsum dolor generator.
-	
-## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
-	
-## Setup
-To run this project, install it locally using npm:
-
-```
-$ cd ../lorem
-$ npm install
-$ npm start
-```
+## References
+link mio articolo + articoli simili + teoria
