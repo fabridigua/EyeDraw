@@ -75,7 +75,7 @@ project
 
    - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen basing on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the light condition and the webcam. The value can't be changed in the next phases. 
 
-     | ![img](imgs\good_thresh.png) | ![img](imgs\low_thresh.png) | ![img](imgs\high_thresh.png) |
+     | ![img](imgs/good_thresh.png) | ![img](imgs/low_thresh.png) | ![img](imgs/high_thresh.png) |
      | ---------------------------- | --------------------------- | ---------------------------- |
      | Good threshold value         | Too Low threshold value     | Too High threshold value     |
 
