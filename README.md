@@ -75,9 +75,9 @@ project
 
    - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen basing on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the light condition and the webcam. The value can't be changed in the next phases. 
 
-     | ![img](file://C:\Projects\EyeDraw\imgs\good_thresh.png) | ![img](file://C:\Projects\EyeDraw\imgs\low_thresh.png) | ![img](file://C:\Projects\EyeDraw\imgs\high_thresh.png) |
-     | ------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------- |
-     | Good threshold value                                    | Too Low threshold value                                | Too High threshold value                                |
+     | ![img](imgs\good_thresh.png) | ![img](imgs\low_thresh.png) | ![img](imgs\high_thresh.png) |
+     | ---------------------------- | --------------------------- | ---------------------------- |
+     | Good threshold value         | Too Low threshold value     | Too High threshold value     |
 
    - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and so the cursor position during the drawing phase), the current eye position is updated only if the two bounding box of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
 
