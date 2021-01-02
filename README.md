@@ -35,14 +35,15 @@ The execution consists of 3 phases:
 ```
 project
 │   README.md
-│   LICENSE   
+│   LICENSE
+|   environment.yml	Anaconda's environment configuration file
 │
 └───imgs
 │   │   1.threshold.png
 │   │   2.calibration.png
 │   │   3.paint.png
 │   │   ...
-│
+│	
 │   main.py		Main file to execute the software
 │   Detector.py		Class for face and eye detection			
 │   Homography.py	Class for calculation of the homography map
@@ -69,7 +70,9 @@ project
 
     If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
 
-If you use Anaconda you can use my same environment using the `environment.yml` file, running the command
+If you use [Anaconda] you can use my same environment using the `environment.yml` file, running the command
+
+[Anaconda]: https://www.anaconda.com/
 
 ```bash
 conda env create -f environment.yml
