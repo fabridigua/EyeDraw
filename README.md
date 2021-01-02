@@ -116,9 +116,9 @@ $ python main.py
 
    The user has to follow a filled circle moving in the screen for about 30 seconds. If the software is detecting the eyes the circle is green, otherwise is become red and stops its movement until the eyes are seen again. There are 17 known positions on the path in witch the circle pause the walk and the software saves both the circle's and the eye's positions; for the eye the middle horizontal point is considered.  At the end of the calibration the software calculates the homography between the screen and the one built with the saved eyes positions.
 
-   | <img src="C:\Projects\EyeDraw\imgs\calibration.gif" style="zoom:100%;" /> |
-   | ------------------------------------------------------------ |
-   | Calibration process                                          |
+   | <img src="imgs\calibration.gif" style="zoom:100%;" /> |
+   | ----------------------------------------------------- |
+   | Calibration process                                   |
 
    
 
