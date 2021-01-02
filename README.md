@@ -3,7 +3,7 @@ Small computer vision software that allows you to draw with your own eyes
 
 ***
 
-Preview GIF {TODO}
+<img src="imgs/face_paint.gif" style="zoom:200%;" />
 
 ## Table of contents
 
