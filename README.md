@@ -47,6 +47,16 @@ The execution consists of 3 phases:
     ```
 
     If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
+  
+- **Numpy 1.19.2**
+
+If you use Anaconda you can use my environment using the `environment.yml` file, running
+
+```bash
+conda env create -f environment.yml
+```
+
+and the environment will get installed in your default conda environment path.
 
 ## Project structure
 
@@ -59,6 +69,7 @@ project
 │   │   1.threshold.png
 │   │   2.calibration.png
 │   │   3.paint.png
+│   │   ...
 │
 │   main.py		Main file to execute the software
 │   Detector.py		Class for face and eye detection			
@@ -67,6 +78,8 @@ project
 ```
 
 ## Setup
+
+
 
 To run this project, clone it with git and run the `main.py` file:
 
