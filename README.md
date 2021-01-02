@@ -8,8 +8,8 @@ Preview GIF {TODO}
 ## Table of contents
 
 * [Basic Overview](#basic-overview)
-* [System Requirements](#system-requirements)
 * [Project structure](#project-structure)
+* [System Requirements](#system-requirements)
 * [Setup](#setup)
 * [How it works](#how-it-works)
 * [References](#references)
@@ -30,34 +30,6 @@ The execution consists of 3 phases:
 
 **Algorithms**: *Haar cascade classifier*, *Blob Detection* , *Homography*
 
-## System Requirements
-
-- **Python 3.8**
-
-- **OpenCV 4.0.1** 
-
-  - Be sure  that OpenCV's haarcascade models '*haarcascade_frontalface_default.xml*' and '*haarcascade_eye.xml*' are properly installed in OpenCV root folder in your Python environment. 
-
-    Files should be in the path returned by this snippet:
-
-    ```python
-    >>> import cv2
-    >>> from os.path import realpath, normpath
-    >>> normpath(realpath(cv2.__file__) + '../../../../Library/etc/haarcascades/')
-    ```
-
-    If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
-  
-- **Numpy 1.19.2**
-
-If you use Anaconda you can use my environment using the `environment.yml` file, running
-
-```bash
-conda env create -f environment.yml
-```
-
-and the environment will get installed in your default conda environment path.
-
 ## Project structure
 
 ```
@@ -77,14 +49,43 @@ project
 │   GUI.py		Class for the drawing and rendering of the user interface 			
 ```
 
+## System Requirements
+
+- **Python 3.8**
+
+- **Numpy 1.19.2**
+
+- **OpenCV 4.0.1** 
+
+  - Be sure  that OpenCV's haarcascade models '*haarcascade_frontalface_default.xml*' and '*haarcascade_eye.xml*' are properly installed in OpenCV root folder in your Python environment. 
+
+    Files should be in the path returned by this snippet:
+
+    ```python
+    >>> import cv2
+    >>> from os.path import realpath, normpath
+    >>> normpath(realpath(cv2.__file__) + '../../../../Library/etc/haarcascades/')
+    ```
+
+    If the path doesn't exist, find the right folder containing the cascade xml filles and change the path in line 7 of `Detector.py` file. 
+
+If you use Anaconda you can use my same environment using the `environment.yml` file, running the command
+
+```bash
+conda env create -f environment.yml
+```
+
+and the environment will get installed in your default conda environment path.
+
 ## Setup
 
+To run this project, clone it with [Git] and run the `main.py` file:
 
-
-To run this project, clone it with git and run the `main.py` file:
+[Git]: https://git-scm.com/downloads	"Git download page"
 
 ```
-$ git clone ...
+$ git clone https://github.com/fabridigua/EyeDraw
+$ cd EyeDraw
 $ python main.py
 ```
 
