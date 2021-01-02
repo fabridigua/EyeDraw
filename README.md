@@ -3,8 +3,6 @@ Small computer vision software that allows you to draw with your own eyes
 
 ***
 
-<img src="imgs/face_paint.gif" style="zoom:200%;" />
-
 ## Table of contents
 
 * [Basic Overview](#basic-overview)
@@ -132,9 +130,10 @@ $ python main.py
    - Change the *sensibility* value with `<` key to decrease and `>` to increase
    - Change the color choosing between the ones showed in the palette in the lateral bar
 
-   TODO: GIF con le funzionalità
-
-
+   <center>
+   <img src="imgs\face_paint.gif" style="zoom:100%;" /> 
+   <p>Some drawing functionalities</p>
+   </center>
 
 ## References
 link mio articolo + articoli simili + teoria
