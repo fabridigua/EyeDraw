@@ -97,24 +97,24 @@ $ python main.py
 
    During all the execution the software analyze the input image from the webcam to detect the face and in particular the eyes
 
-   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]** and then to detect the pupils, a **Blob Detection** is made with the [SimpleBlobDetector].
+   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]** and then to detect the pupils, a **Blob Detection** is made with the **[SimpleBlobDetector]**.
 
    [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector Explanation"
    [SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
 
    In this phase is necessary to set two specific threshold:
 
-   - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen basing on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the light condition and the webcam. The value can't be changed in the next phases. 
+   - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen based on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the lighting conditions and the webcam. The value cannot be changed in later phases. 
 
      | ![img](imgs/good_thresh.png) | ![img](imgs/low_thresh.png) | ![img](imgs/high_thresh.png) |
      | ---------------------------- | --------------------------- | ---------------------------- |
      | Good threshold value         | Too Low threshold value     | Too High threshold value     |
 
-   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and so the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
+   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and therefore the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
 
 2. **Calibration**
 
-   The user has to follow a filled circle moving in the screen for about 30 seconds. If the software is detecting the eyes the circle is green, otherwise is become red and stops its movement until the eyes are seen again. There are 17 known positions on the path in witch the circle pause the walk and the software saves both the circle's and the eye's positions; for the eye the middle horizontal point is considered.  At the end of the calibration the software calculates the homography between the screen and the one built with the saved eyes positions.
+   The user has to follow a filled circle moving on the screen for about 30 seconds. If the software is detecting the eyes the circle is green, otherwise it turns red and stops its movement until the eyes are seen again. There are 17 known positions on the path where the circle stops the walk and the software saves both the position of the circle and that of the eye; for the eye the horizontal midpoint is considered.  At the end of the calibration the software calculates the [homography] between the screen and the one built with the saved eye positions.
 
    <center>
    <img src="imgs\calibration.gif" style="zoom:100%;" /> 
@@ -123,19 +123,20 @@ $ python main.py
    
 3. **Drawing**
 
-   The user can draw! There are two interaction mode, toggled with the `space` key: the "*Pointer Mode*" in witch the user can move the cursor in the canvas without drawing and the "*Paint Mode*" in witch the user can draw moving the eyes on the canvas. In every moment the user can:
+   The user can draw! There are two interaction modes, which can be activated with the `space` key: the "*Pointer Mode*" in witch the user can move the cursor in the canvas without drawing and the "*Paint Mode*" in which the user can draw by moving the eyes on the canvas. At any time the user can:
 
-   - Toggle the interaction mode with `space` key
-   - Clear the canvas with `c` key
+   - Change the interaction mode with `space` key
+   - Clean the canvas with `c` key
    - Change the cursor size with `-` key to decrease and `+` to increase 
    - Save the image with `s` key
    - Change the *sensibility* value with `<` key to decrease and `>` to increase
-   - Change the color choosing between the ones showed in the palette in the lateral bar
+   - Change the color by choosing from those showed in the palette in the sidebar
 
    <center>
    <img src="imgs\face_paint.gif" style="zoom:100%;" /> 
    <p>Some drawing functionalities</p>
    </center>
+   
 
 ## References
-link mio articolo + articoli simili + teoria
+1 WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
