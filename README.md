@@ -123,7 +123,7 @@ $ python main.py
    
 3. **Drawing**
 
-   The user can draw! There are two interaction modes, which can be activated with the `space` key: the "*Pointer Mode*" in witch the user can move the cursor in the canvas without drawing and the "*Paint Mode*" in which the user can draw by moving the eyes on the canvas. At any time the user can:
+   The user can draw! There are two interaction modes, which can be activated with the `space` key: the "*Pointer Mode*" in witch the user can move the cursor in the canvas without drawing and the "*Paint Mode*" in which the user can draw by moving the eyes on the canvas[^bignote]. At any time the user can:
 
    - Change the interaction mode with `space` key
    - Clean the canvas with `c` key
@@ -140,3 +140,4 @@ $ python main.py
 
 ## References
 [^1]: WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
+[^bignote]: Here's one with multiple paragraphs and code.
