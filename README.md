@@ -104,9 +104,9 @@ $ python main.py
 
    - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen based on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the lighting conditionz and the webcam. The value cannot be changed in later phases. 
 
-     | ![img](imgs/good_thresh.png) | ![img](imgs/low_thresh.png) | ![img](imgs/high_thresh.png) |
-  | ---------------------------- | --------------------------- | ---------------------------- |
-     | Good threshold value         | Too Low threshold value     | Too High threshold value     |
+     | <img src="imgs/good_thresh.png" alt="img" style="zoom:33%;" /> | <img src="imgs/low_thresh.png" alt="img" style="zoom:33%;" /> | <img src="imgs/high_thresh.png" alt="img" style="zoom:33%;" /> |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+     | Good threshold value                                         | Too Low threshold value                                      | Too High threshold value                                     |
    
    - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and therefore the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
 
