@@ -1,6 +1,8 @@
 # EyeDraw
 Small computer vision software that allows you to draw with your own eyes
 
+![](imgs/example_paint.gif)
+
 ***
 
 ## Table of contents
