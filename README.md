@@ -22,7 +22,7 @@ The execution consists of 3 phases:
 | 1. Threshold Settings                                        | 2. Calibration                                               | 3. Draw                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="imgs/1.threshold.png" style="zoom:33%;" />         | <img src="imgs/2.calibration.png" style="zoom:33%;" />       | <img src="imgs/3.paint.png" style="zoom:33%;" />             |
-| The software detects your face and eyes in real time. n this phase, two important thresholds must be set to improve and stabilize the detection. | Calibration is done by asking you to follow the circle with your eyes for about 30 seconds. | You can draw! Move the cursor over the canvas and draw what you want. Custom colors and options are available. |
+| The software detects your face and eyes in real time. Two important thresholds must be set to improve and stabilize the detection. | Calibration is done by asking you to follow the circle with your eyes for about 30 seconds. | You can draw! Move the cursor over the canvas and draw what you want. Custom colors and options are available. |
 
 **Language**: *Python*
 
