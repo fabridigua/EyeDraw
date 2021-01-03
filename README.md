@@ -95,19 +95,21 @@ $ python main.py
 ## How it works
 1. **Eye Detection** and **Threshold Settings**
 
-   During all the execution the software analyze the input image from the webcam to detect the face and in particular the eyes. Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]** and then to detect the pupils, a **Blob Detection** is made with the [SimpleBlobDetector].
+   During all the execution the software analyze the input image from the webcam to detect the face and in particular the eyes
+
+   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]** and then to detect the pupils, a **Blob Detection** is made with the [SimpleBlobDetector].
 
    [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector Explanation"
-[SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
-   
+   [SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
+
    In this phase is necessary to set two specific threshold:
 
    - **Eye Detection Threshold**: value used during the pupils detection inside the eyes to decide how intense the thresholding of the eye image has to be. it should be chosen basing on the stability of the pupils detection (the green circle drawn inside the eyes). The best value could depend on the light condition and the webcam. The value can't be changed in the next phases. 
 
      | ![img](imgs/good_thresh.png) | ![img](imgs/low_thresh.png) | ![img](imgs/high_thresh.png) |
-  | ---------------------------- | --------------------------- | ---------------------------- |
+     | ---------------------------- | --------------------------- | ---------------------------- |
      | Good threshold value         | Too Low threshold value     | Too High threshold value     |
-   
+
    - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and so the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
 
 2. **Calibration**
