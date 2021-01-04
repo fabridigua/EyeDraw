@@ -1,7 +1,11 @@
 # EyeDraw
 Small computer vision software that allows you to draw with your eyes
 
-![](imgs/example_paint.gif)
+<div align="center">
+    <img src="imgs\example_paint.gif" style="zoom:200%;" /> 
+</div>
+
+
 
 ***
 
