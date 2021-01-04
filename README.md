@@ -1,5 +1,5 @@
 # EyeDraw
-Small computer vision software that allows you to draw with your eyes
+Small computer vision software that allows you to **draw with your eyes**.
 
 <div align="center">
     <img src="imgs\example_paint.gif" style="zoom:200%;" /> 
@@ -19,7 +19,7 @@ Small computer vision software that allows you to draw with your eyes
 * [References](#references)
 
 ## Basic Overview
-This project aims to investigate the potential of computer vision in eye detection for the development of a *real-time* application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part. 
+This project aims to investigate the potential of computer vision in *eye detection* for the development of a *real-time* application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part. 
 
 The execution consists of 3 phases:
 
