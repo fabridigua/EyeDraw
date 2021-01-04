@@ -97,7 +97,7 @@ $ python main.py
 
    During all the execution the software analyze the input image from the webcam to detect the face and in particular the eyes
 
-   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]**<sup>[1](#myfootnote1)</sup>  and then to detect the pupils, a **Blob Detection** is made with the **[SimpleBlobDetector]**.
+   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]**<sup>[[1]](#haar_ref)</sup>  and then to detect the pupils, a **Blob Detection** is made with the **[SimpleBlobDetector]**.
 
    [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector Explanation"
    [SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
@@ -139,4 +139,4 @@ $ python main.py
    
 
 ## References
-<a name="myfootnote1">1</a>: WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
+<a name="haar_ref">[1]</a>: WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
