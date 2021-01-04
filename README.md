@@ -118,7 +118,7 @@ $ python main.py
 
    <center>
    <img src="imgs\calibration.gif" style="zoom:100%;" /> 
-   <p>Calibration Process</p>
+   <p style="text-align:center">Calibration Process</p>
    </center>
    
 3. **Drawing**
