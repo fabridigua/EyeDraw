@@ -119,7 +119,7 @@ $ python main.py
    <center>
        <div>        
            <img src="imgs\calibration.gif" style="zoom:100%;" /> 
-           <p style="text-align:center">Calibration Process</p>
+           <p style="text-align:center;">Calibration Process</p>
        </div>
    </center>
    
