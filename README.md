@@ -135,9 +135,12 @@ $ python main.py
    - Change the color by choosing from those showed in the palette in the sidebar
 
    <center>
-   <img src="imgs\face_paint.gif" style="zoom:100%;" /> 
-   <p>Some drawing functionalities</p>
+       <div align="center">
+           <img src="imgs\face_paint.gif" style="zoom:100%;" /> 
+           <p>Some drawing functionalities</p>
+       </div>
    </center>
+   
    
 
 ## References
