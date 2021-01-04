@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import os
 import ctypes
-
+import operator
 
 class GUI:
     def __init__(self):
@@ -21,6 +21,7 @@ class GUI:
         self.step_w = int(0.025 * self.canvas_w)
         self.step_h = int(0.025 * self.canvas_h)
         self.calibration_cursor_pos = (self.eye_radius, int(0.025 * self.canvas_h))
+        self.last_calibration_checkpoint = -1
         self.calibration_counter = 0
         self.offset_y = (self.step_w - self.step_h) if self.step_w > self.step_h else (self.step_h - self.step_w)
         self.calibration_poses = [
@@ -32,7 +33,6 @@ class GUI:
             (10 * self.step_w, 39 * self.step_h), (30 * self.step_w, 39 * self.step_h),
             (self.step_w, 30 * self.step_h), (39 * self.step_w, 10 * self.step_h),
         ]
-        self.calibration_eyes_poses = []
         self.cursor_radius = 10
         self.cursor_color = (0, 0, 0)
         self.last_cursor = [-1, -1]
@@ -57,6 +57,7 @@ class GUI:
             main_y_offset = int((self.screensize[1] - main_height) / 3)
             main_x_offset = int((self.screensize[0] - main_width) / 4)
             main_image = cv2.resize(main_image, (main_width, main_height))
+
             img[main_y_offset:main_image.shape[0] + main_y_offset,
             main_x_offset:main_image.shape[1] + main_x_offset] = main_image
             # Instruction
@@ -222,20 +223,24 @@ class GUI:
 
             # Test
             letters = ['r', 'g', 'b', 'n', 'w', 'y', 'p', 'a']
-            colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 0, 0), (255, 255, 255), (0, 255, 255), (255, 0, 255), (255, 255, 0)]
+            colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 0, 0), (255, 255, 255), (0, 255, 255), (255, 0, 255),
+                      (255, 255, 0)]
             for k in [0, 2, 4, 6]:
-                img[face_frame.shape[0] + 300 + int(40*k/2):face_frame.shape[0] + 300 + int(40*k/2) + square_dim,
+                img[
+                face_frame.shape[0] + 300 + int(40 * k / 2):face_frame.shape[0] + 300 + int(40 * k / 2) + square_dim,
                 img.shape[1] - lateral_width + 40:img.shape[1] - lateral_width + 40 + square_dim] = colors[k]
-                img[face_frame.shape[0] + 300 + int(40*k/2):face_frame.shape[0] + 300 + int(40*k/2) + square_dim,
-                img.shape[1] - int(lateral_width / 2):img.shape[1] - int(lateral_width / 2) + square_dim] = colors[k+1]
+                img[
+                face_frame.shape[0] + 300 + int(40 * k / 2):face_frame.shape[0] + 300 + int(40 * k / 2) + square_dim,
+                img.shape[1] - int(lateral_width / 2):img.shape[1] - int(lateral_width / 2) + square_dim] = colors[
+                    k + 1]
 
                 img = cv2.putText(img, letters[k], (
                     img.shape[1] - lateral_width + 50 + square_dim,
-                    face_frame.shape[0] + 295 + (int(k/2) * 38) + square_dim),
+                    face_frame.shape[0] + 295 + (int(k / 2) * 38) + square_dim),
                                   cv2.FONT_HERSHEY_SIMPLEX, 0.9, color=(252, 252, 252))
                 img = cv2.putText(img, letters[k + 1], (
                     img.shape[1] - int(lateral_width / 2) + square_dim + 10,
-                    face_frame.shape[0] + 295 + (int(k/2) * 38) + square_dim),
+                    face_frame.shape[0] + 295 + (int(k / 2) * 38) + square_dim),
                                   cv2.FONT_HERSHEY_SIMPLEX, 0.9, color=(252, 252, 252))
 
         cv2.imshow('EyePaint', img)
@@ -265,8 +270,7 @@ class GUI:
                     list(self.calibration_cursor_pos)[1] + self.step_h)
                 self.check_position()
 
-        self.canvas[:, :] = (255, 255, 255)
-        # TODO: disegnare il path di calibrazione, soprattutto i punti di stop: canvas bianco, palle stop grigio scruro, linee grigio chiarissimo
+        self.draw_calibration_canvas()
         self.canvas = cv2.circle(self.canvas, self.calibration_cursor_pos, self.eye_radius,
                                  self.calibration_cursor_color, -1)
         return self.save_pos
@@ -278,6 +282,7 @@ class GUI:
         if pos in self.calibration_poses:
             self.save_pos = True if not self.save_pos else False
             self.calibration_cursor_color = (255, 0, 0)
+            self.last_calibration_checkpoint += 1
             if not self.waiting:
                 self.calibration_counter += 1
                 self.waiting = True
@@ -352,3 +357,42 @@ class GUI:
             self.cursor_color = (255, 0, 255)
         elif k == 97:  # a = Aqua
             self.cursor_color = (255, 255, 0)
+
+    def draw_calibration_canvas(self):
+        self.canvas[:, :] = (255, 255, 255)
+        # Draw ghost path
+        sp = int(self.cursor_radius)
+        checkpoint_poses = [tuple(map(operator.add, e, (sp, sp))) for e in self.calibration_poses]
+        self.canvas = cv2.line(self.canvas, checkpoint_poses[0], checkpoint_poses[2], (133, 133, 133),
+                               self.cursor_radius)
+        self.canvas = cv2.line(self.canvas, checkpoint_poses[3], checkpoint_poses[5], (133, 133, 133),
+                               self.cursor_radius)
+        self.canvas = cv2.line(self.canvas, checkpoint_poses[6], checkpoint_poses[8], (133, 133, 133),
+                               self.cursor_radius)
+        self.canvas = cv2.line(self.canvas, checkpoint_poses[2], checkpoint_poses[5], (133, 133, 133),
+                               self.cursor_radius)
+        self.canvas = cv2.line(self.canvas, checkpoint_poses[3], checkpoint_poses[6], (133, 133, 133),
+                               self.cursor_radius)
+
+        checkpoint_color = (111, 111, 111)
+        for checkpoint in self.calibration_poses:
+            cv2.rectangle(self.canvas, checkpoint, tuple(map(operator.add, checkpoint, (20, 20))), checkpoint_color, -1)
+
+        if self.last_calibration_checkpoint < 0:
+            return
+
+        sorted_indices = [0, 9, 1, 10, 2, 16, 5, 12, 4, 11, 3, 15, 6, 13, 7, 14, 8]
+        sorted_poses = [self.calibration_poses[idx] for idx in sorted_indices]
+
+        checkpoint_color = (0, 250, 0)
+        cv2.rectangle(self.canvas, sorted_poses[0], tuple(map(operator.add, sorted_poses[0], (20, 20))), checkpoint_color,
+                      -1)
+        for square_idx in range(self.last_calibration_checkpoint):
+            prev_square = sorted_poses[square_idx]
+            square = sorted_poses[square_idx + 1]
+            cv2.rectangle(self.canvas, prev_square, tuple(map(operator.add, prev_square, (20, 20))), checkpoint_color,
+                          -1)
+            cv2.rectangle(self.canvas, square, tuple(map(operator.add, square, (20, 20))), checkpoint_color, -1)
+            self.canvas = cv2.line(self.canvas, tuple(map(operator.add, prev_square, (10, 10))), tuple(map(operator.add, square, (10, 10))), checkpoint_color, self.cursor_radius)
+        self.canvas = cv2.line(self.canvas, tuple(map(operator.add, sorted_poses[self.last_calibration_checkpoint], (10, 10))), tuple(map(operator.add, self.calibration_cursor_pos, (10, 10))),
+                               checkpoint_color, self.cursor_radius)

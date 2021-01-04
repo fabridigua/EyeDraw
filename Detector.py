@@ -1,13 +1,16 @@
 import cv2
 import numpy as np
-
+from os.path import realpath, normpath
 
 class CascadeDetector:
     def __init__(self):
-        self.face_cascade = cv2.CascadeClassifier(
-            'C:\\Users\\Lenovo\\anaconda3\\envs\\EyePaint\\Library\\etc\\haarcascades\\haarcascade_frontalface_default.xml')
-        self.eye_cascade = cv2.CascadeClassifier(
-            'C:\\Users\\Lenovo\\anaconda3\\envs\\EyePaint\\Library\\etc\\haarcascades\\haarcascade_eye.xml')
+        xml_path = normpath(realpath(cv2.__file__) + '../../../../Library/etc/haarcascades/')
+        #self.face_cascade = cv2.CascadeClassifier(
+            #'C:\\Users\\Lenovo\\anaconda3\\envs\\EyePaint\\Library\\etc\\haarcascades\\haarcascade_frontalface_default.xml')
+        #self.eye_cascade = cv2.CascadeClassifier(
+            #'C:\\Users\\Lenovo\\anaconda3\\envs\\EyePaint\\Library\\etc\\haarcascades\\haarcascade_eye.xml')
+        self.face_cascade = cv2.CascadeClassifier(xml_path + '/haarcascade_frontalface_default.xml')
+        self.eye_cascade = cv2.CascadeClassifier(xml_path + '/haarcascade_eye.xml')
         detector_params = cv2.SimpleBlobDetector_Params()
         detector_params.filterByArea = True
         detector_params.maxArea = 1500
@@ -34,7 +37,7 @@ class CascadeDetector:
         self.overlap_threshold = 0.9
 
     def detectFace(self, bgr_image):
-        self.PUPIL_THRESH = cv2.getTrackbarPos('Threshold', 'EyePaint')
+        self.PUPIL_THRESH = cv2.getTrackbarPos('Eye Detection Threshold', 'EyePaint')
         gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
         return self.face_cascade.detectMultiScale(gray_image, 1.3, 5)  # TODO: parametrizzare parametri
 
@@ -53,7 +56,7 @@ class CascadeDetector:
         return self.blobDetector.detect(img), t_img
 
     def find_eyes(self, frame):
-        self.PUPIL_THRESH = cv2.getTrackbarPos('Threshold', 'EyePaint')
+        self.PUPIL_THRESH = cv2.getTrackbarPos('Eye Detection Threshold', 'EyePaint')
 
         frame_w = frame.shape[1]
         frame_h = frame.shape[0]
@@ -69,6 +72,12 @@ class CascadeDetector:
             self.face_frame = frame_original[face_y:face_y + face_h, face_x:face_x + face_w]
             x, y, w, h = self.stabilize_face_frame(x, y, w, h)
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 0), 2)
+
+            frame[0:y, 0:frame.shape[1]] = cv2.GaussianBlur(frame[0:y, 0:frame.shape[1]], (0, 0), 4)
+            frame[y:y+h, 0:x] = cv2.GaussianBlur(frame[y:y+h, 0:x], (0, 0), 4)
+            frame[y+h:frame.shape[0], 0:frame.shape[1]] = cv2.GaussianBlur(frame[y+h:frame.shape[0], 0:frame.shape[1]], (0, 0), 4)
+            frame[y:y+h, x+w:frame.shape[1]] = cv2.GaussianBlur(frame[y:y+h, x+w:frame.shape[1]], (0, 0), 4)
+
             eyes = self.detectEyes(self.face_frame)
             self.left_is_visible = False
             self.right_is_visible = False

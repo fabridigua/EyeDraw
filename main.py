@@ -18,8 +18,8 @@ if __name__ == '__main__':
 
     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     cv2.namedWindow('EyePaint', cv2.WINDOW_FULLSCREEN)
-    cv2.createTrackbar('Threshold', 'EyePaint', 0, 255, gui.on_trackbar)
-    cv2.setTrackbarPos('Threshold', 'EyePaint', PUPIL_THRESH)
+    cv2.createTrackbar('Eye Detection Threshold', 'EyePaint', 0, 255, gui.on_trackbar)
+    cv2.setTrackbarPos('Eye Detection Threshold', 'EyePaint', PUPIL_THRESH)
 
     while True:
         _, frame = cap.read()
