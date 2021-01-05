@@ -114,7 +114,13 @@ $ python main.py
      | ---------------------------- | --------------------------- | ---------------------------- |
      | Good threshold value         | Too Low threshold value     | Too High threshold value     |
 
-   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and therefore the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value.
+     
+
+   - **Sensibility**: value used to determine if the eyes have moved in two consecutive frames. To stabilize the detected eye position (and therefore the cursor position during the drawing phase), the current eye position is updated only if the two bounding boxes (the fuchsia squares) of the same eye in the two observed frames overlap less than a certain percentage, given by the *sensibility* value. 
+
+     | ![img](imgs/good_sensitivity.gif) | ![img](imgs/low_sensitivity.gif) | ![img](imgs/high_sensitivity.gif) |
+     | --------------------------------- | -------------------------------- | --------------------------------- |
+     | Good sensitivity level            | Too low sensitivity level        | Too high sensitivity level        |
 
 2. **Calibration**
 
