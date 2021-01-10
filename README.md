@@ -19,7 +19,7 @@ Small computer vision software that allows you to **draw with your eyes**.
 * [References](#references)
 
 ## Basic Overview
-This project aims to investigate the potential of computer vision in *eye detection* for the development of a *real-time* application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part. 
+This project aims to investigate the potential of computer vision in *eye detection* for the development of a *real-time* application with the use of a simple webcam. **OpenCV** is used for both the GUI and the algorithmic part. I also made a more detailed guide<sup>[[1]](#eyedraw_ref)</sup>.
 
 The execution consists of 3 phases:
 
@@ -101,7 +101,7 @@ $ python main.py
 
    During all the execution the software analyze the input image from the webcam to detect the face and in particular the eyes
 
-   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]**<sup>[[1]](#haar_ref)</sup>  and then to detect the pupils, a **Blob Detection**<sup>[[2]](#blob_ref)</sup>   is made with the **[SimpleBlobDetector]**.
+   Face and eyes detection is made with OpenCV's **[Haar Cascade Detector]**<sup>[[2]](#haar_ref)</sup>  and then to detect the pupils, a **Blob Detection**<sup>[[3]](#blob_ref)</sup>   is made with the **[SimpleBlobDetector]**.
 
    [Haar Cascade Detector]: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html	"Haar Cascade Detector Explanation"
    [SimpleBlobDetector]:  https://docs.opencv.org/4.0.1/d0/d7a/classcv_1_1SimpleBlobDetector.html#details "cv::SimpleBlobDetector Class Reference"
@@ -154,21 +154,26 @@ $ python main.py
    
 
 ## References
-<a name="haar_ref">[1]</a>: WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
 
-<a name="haar_ref">[2]</a>:  [Detecting objects using Haar Cascade Classifier]
+<a name="eyedraw_ref">[1]</a>:  [EyeDraw — How to draw with your eyes using Computer Vision]
+
+[EyeDraw — How to draw with your eyes using Computer Vision]: https://fabridigua.medium.com/eyedraw-how-to-draw-with-your-eyes-using-computer-vision-226317501e6a	"EyeDraw — How to draw with your eyes using Computer Vision"
+
+<a name="haar_ref">[2]</a>: WILSON, Phillip Ian; FERNANDEZ, John. Facial feature detection using Haar classifiers. *Journal of Computing Sciences in Colleges*, 2006, 21.4: 127-133.
+
+<a name="haar_ref">[3]</a>:  [Detecting objects using Haar Cascade Classifier]
 
 [Detecting objects using Haar Cascade Classifier]: https://towardsdatascience.com/computer-vision-detecting-objects-using-haar-cascade-classifier-4585472829a9	"Detecting objects using Haar Cascade Classifier"
 
-<a name="blob_ref">[3]</a>:  [Blob Detection]
+<a name="blob_ref">[4]</a>:  [Blob Detection]
 
 [Blob Detection]: https://medium.com/image-processing-in-robotics/blob-detection-309226a3ea5b	"Blob Detection"
 
-<a name="homo_ref">[4]</a>:  [Homography - And how to calculate it?]
+<a name="homo_ref">[5]</a>:  [Homography - And how to calculate it?]
 
 [Homography - And how to calculate it?]: https://medium.com/all-things-about-robotics-and-computer-vision/homography-and-how-to-calculate-it-8abf3a13ddc5	"Homography - And how to calculate it?"
 
-<a name="dlib_ref">[5]</a>:  [Real-time eye tracking using OpenCV and Dlib]
+<a name="dlib_ref">[6]</a>:  [Real-time eye tracking using OpenCV and Dlib]
 
 [Real-time eye tracking using OpenCV and Dlib]: https://towardsdatascience.com/real-time-eye-tracking-using-opencv-and-dlib-b504ca724ac6	"Real-time eye tracking using OpenCV and Dlib"
 
